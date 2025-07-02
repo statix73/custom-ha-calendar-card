@@ -12,22 +12,23 @@ A custom Lovelace card for Home Assistant that visually replicates Google Calend
 ## Installation
 
 1. Copy `google-style-calendar-card.js` to `/config/www/custom-ha-calendar-card/` in your Home Assistant.
-2. Add this to your Lovelace resources:
+2. Add the following to your Lovelace resources:
 
 ```yaml
 url: /local/custom-ha-calendar-card/google-style-calendar-card.js
 type: module
+```
 
-Add the card manually to your dashboard:
+3. Add the card manually to your dashboard using YAML:
 
-yaml
-Copy
-Edit
+```yaml
 type: 'custom:google-style-calendar-card'
 calendars:
   - entity: calendar.family
     color: '#2196F3'
   - entity: calendar.work
     color: '#4CAF50'
-HACS Support (Optional)
-This repo includes hacs.json, so you can add it as a custom repository to HACS.
+```
+
+## HACS Support (Optional)
+This repo includes `hacs.json`, so you can add it as a custom repository to HACS.
