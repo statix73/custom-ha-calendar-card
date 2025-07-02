@@ -1,0 +1,12 @@
+{
+  "name": "Custom HA Calendar Card",
+  "content_in_root": false,
+  "filename": "google-style-calendar-card.js",
+  "render_readme": true,
+  "domains": ["lovelace"],
+  "country": "all",
+  "homeassistant": "2023.0.0",
+  "iot_class": "local",
+  "version": "1.0.0",
+  "documentation": "https://github.com/YOUR_statix73/custom-ha-calendar-card"
+}
