@@ -19,9 +19,17 @@ class GoogleStyleCalendarCard extends HTMLElement {
     return 10;
   }
 
+  connectedCallback() {
+    this._lastEventLoad = 0;
+  }
+
   set hass(hass) {
     this._hass = hass;
-    this.loadEvents();
+    const now = Date.now();
+    if (!this._lastEventLoad || now - this._lastEventLoad > 60 * 1000) {
+      this._lastEventLoad = now;
+      this.loadEvents();
+    }
   }
 
   async loadEvents() {
