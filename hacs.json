@@ -1,6 +1,6 @@
 {
   "name": "Custom HA Calendar Card",
-  "content_in_root": false,
+  "content_in_root": true,
   "filename": "google-style-calendar-card.js",
   "render_readme": true,
   "domains": ["lovelace"],
