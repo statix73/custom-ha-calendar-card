@@ -1,0 +1,11 @@
+{
+  "name": "custom-ha-calendar-card",
+  "version": "1.0.0",
+  "description": "Google Calendar-style Lovelace card for Home Assistant",
+  "main": "google-style-calendar-card.js",
+  "author": "statix73",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {}
+}
