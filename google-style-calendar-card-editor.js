@@ -15,13 +15,7 @@ class GoogleStyleCalendarCardEditor extends HTMLElement {
     this._hass = hass;
   }
 
-  getConfig() {
-    return this._config;
-  }
-
   render() {
-    if (!this.shadowRoot) return;
-
     const config = this._config || { calendars: [] };
 
     this.shadowRoot.innerHTML = `
@@ -29,18 +23,13 @@ class GoogleStyleCalendarCardEditor extends HTMLElement {
         .editor {
           padding: 16px;
         }
-        .editor label {
-          display: block;
-          margin-bottom: 8px;
-          font-weight: bold;
-        }
         .calendar-entry {
-          margin-bottom: 16px;
+          margin-bottom: 12px;
         }
         input[type="text"], input[type="color"] {
-          width: calc(100% - 12px);
-          padding: 6px;
+          width: 100%;
           margin-top: 4px;
+          padding: 6px;
           box-sizing: border-box;
         }
       </style>
@@ -63,7 +52,7 @@ class GoogleStyleCalendarCardEditor extends HTMLElement {
     });
 
     this.shadowRoot.querySelectorAll('.calendar-entry input').forEach((input) => {
-      input.addEventListener('change', (e) => {
+      input.addEventListener('change', () => {
         const div = input.closest('.calendar-entry');
         const index = parseInt(div.dataset.index);
         const name = input.name;
@@ -75,11 +64,11 @@ class GoogleStyleCalendarCardEditor extends HTMLElement {
   }
 
   _fireChange() {
-    const event = new Event('config-changed', {
+    const event = new CustomEvent('config-changed', {
+      detail: { config: this._config },
       bubbles: true,
       composed: true,
     });
-    event.detail = { config: this._config };
     this.dispatchEvent(event);
   }
 }
