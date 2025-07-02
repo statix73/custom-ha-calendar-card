@@ -129,12 +129,10 @@ class GoogleStyleCalendarCard extends HTMLElement {
         eventEl.classList.add('event');
         eventEl.textContent = event.summary;
         eventEl.style.background = event.color || '#2196F3';
-        eventEl.style.left = `calc(60px + ${dayOffset} * 1fr)`;
+        eventEl.style.left = `calc(60px + ${dayOffset} * ((100% - 60px) / 7))`;
         eventEl.style.top = `${top}px`;
         eventEl.style.height = `${height}px`;
         eventEl.style.width = `calc((100% - 60px)/7 - 4px)`;
-        eventEl.style.marginLeft = `calc(${dayOffset} * ((100% - 60px)/7))`;
-
         container.appendChild(eventEl);
       });
     }
